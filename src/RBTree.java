@@ -1,7 +1,8 @@
 /**
  * Team members:
- * @author John Doe
- * @author Jane Doe
+ * @author Lauren Arner
+ * @author Richard Smith
+ * @author Justin Sung
  * 
  * RBTree class, maintains operations on RBTree.
  */
