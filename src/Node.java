@@ -1,19 +1,46 @@
 /**
  * Team members:
- * @author John Doe
- * @author Jane Doe
+ * @author Lauren Arner
+ * @author Richard Smith
+ * @author Justin Sung
  * 
  * Node class for RBTree.
  */
 public class Node {
+	
+	public Node parent;
+	public Node left;
+	public Node right;
+	public int key;
+	public int color;
+	public int val;
+	public Endpoint endpoint;
+	public int p;
+	public int maxval;
+	public Endpoint emax;
+	
+	public Node() {
+		this.parent = null;
+		this.left = null;
+		this.right = null;
+		this.key = -1;
+		this.color = 0;
+		this.val = -1;
+		this.endpoint = null;
+		this.p = -1;
+		this.maxval=-1;
+		this.emax = null;
+		
+		
+	}
 	
 	/**
 	 * Returns the parent of this node.
 	 * @return
 	 */
 	public Node getParent() {
-		//TODO: Modify it accordingly.
-		return null;
+		
+		return parent;
 	}
 	
 	/**
@@ -21,8 +48,7 @@ public class Node {
 	 * @return
 	 */
 	public Node getLeft() {
-		//TODO: Modify it accordingly.
-		return null;
+		return left;
 	}
 	
 	/**
@@ -30,8 +56,7 @@ public class Node {
 	 * @return
 	 */
 	public Node getRight() {
-		//TODO: Modify it accordingly.
-		return null;
+		return right;
 	}
 	
 	/**
@@ -39,8 +64,7 @@ public class Node {
 	 * @return
 	 */
 	public int getKey() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return key;
 	}
 	
 	/**
@@ -48,8 +72,7 @@ public class Node {
 	 * @return
 	 */
 	public int getP() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return p;
 	}
 	
 	/**
@@ -57,8 +80,7 @@ public class Node {
 	 * @return
 	 */
 	public int getVal() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return val;
 	}
 	
 	/**
@@ -66,8 +88,7 @@ public class Node {
 	 * @return
 	 */
 	public int getMaxVal() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return maxval;
 	}
 	
 	/**
@@ -75,8 +96,7 @@ public class Node {
 	 * @return
 	 */
 	public Endpoint getEndpoint() {
-		//TODO: Modify it accordingly.
-		return null;
+		return endpoint;
 	}
 	
 	/**
@@ -86,8 +106,7 @@ public class Node {
 	 * @return
 	 */
 	public Endpoint getEmax() {
-		//TODO: Modify it accordingly.
-		return null;
+		return emax;
 	}
 	
 	/**
@@ -95,8 +114,7 @@ public class Node {
 	 * @return
 	 */
 	public int getColor() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return color;
 	}
 	
 	//Add more functions as  you see fit.
