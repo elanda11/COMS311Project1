@@ -12,11 +12,14 @@ public class Intervals {
 	//private int ID = 0; If deletion is done, this could be used to keep track of edpoints
 	//                    for the same interval.
 	
+	private  int a, b;
+	
 	/**
 	 * Constructor with no parameters.
 	 */
 	public Intervals() {
 		//TODO: Complete it as needed
+		this.a = 0; this.b = 0;
 	}
 	
 	/**
@@ -33,7 +36,8 @@ public class Intervals {
 	 * @param b
 	 */
 	void intervalInsert(int a, int b) {
-		//TODO: Complete it as needed
+		new Node();
+		
 	}
 	
 	/**
@@ -58,8 +62,8 @@ public class Intervals {
 	 * @return
 	 */
 	int findPOM() {
-		//TODO: Modify it accordingly.
-		return 0;
+		RBTree tree = getRBTree();
+		return tree.root.val;
 	}
 	
 	/**

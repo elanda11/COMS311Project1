@@ -14,6 +14,8 @@ public class Endpoint {
 	 * interval [1,3], this would return 1.
 	 * @return
 	 */
+	
+	
 	public int getValue() {
 		//TODO: Modify it accordingly.
 		return 1;
