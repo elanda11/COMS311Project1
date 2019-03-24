@@ -23,11 +23,11 @@ public class Node {
 		this.parent = null;
 		this.left = null;
 		this.right = null;
-		this.key = -1;
+		this.key = 0;
 		this.color = 0;
-		this.val = -1;
+		this.val = 0;
 		this.endpoint = null;
-		this.p = -1;
+		this.p = 0;
 		this.maxval=-1;
 		this.emax = null;
 		
