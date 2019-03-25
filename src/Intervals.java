@@ -110,23 +110,21 @@ public class Intervals {
 	
 	//TODO fix to rotate right correctly
 	public void rightRotate (RBTree tree, Node node) {
-		Node y = node.right;
-		node.right = y.left;
 		
-		if(y.left != tree.NIL) {
-			y.left.parent = node;
-		}y.parent = node.parent;
-		
-		if(node.parent == tree.NIL) {
-			tree.root = y;
-		}else if(node == node.parent.left) {
-			node.parent.left = y;
+		Node y = node.parent;
+		y.left = node.right;
+		if(node.right != null) {
+			node.right.parent = y;
+		}node.parent = y.parent;
+		if(y.parent == null) {
+			tree.root = node;
+		}else if(y == y.parent.right) {
+			y.parent.right = node;
 		}else {
-			node.parent.right = y;
+			y.parent.left = y;
 		}
 		
-		y.left = node;
-		node.parent = y;
+		
 	}
 	
 	

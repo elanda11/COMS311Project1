@@ -14,10 +14,15 @@ public class Endpoint {
 	 * interval [1,3], this would return 1.
 	 * @return
 	 */
+	int value;
 	
+	public Endpoint(int value) {
+		this.value = value;
+	}
+	
+
 	
 	public int getValue() {
-		//TODO: Modify it accordingly.
-		return 1;
+		return this.value;
 	}
 }
