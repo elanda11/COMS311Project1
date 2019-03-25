@@ -36,7 +36,8 @@ public class Intervals {
 	 * @param b
 	 */
 	void intervalInsert(int a, int b) {
-		new Node();
+		insert(a, 1);
+		insert(b, -1);
 		
 	}
 	
@@ -78,6 +79,56 @@ public class Intervals {
 	
 	//Add more functions as  you see fit.
 	
+	public void insert(int a, int side) {
+		Node toInsert = new Node();
+		toInsert.key = a;
+		toInsert.p = side;
+		toInsert.color = 0;
+			
+		
+	}
+	
+	public void leftRotate (RBTree tree, Node node) {
+		Node y = node.right;
+		node.right = y.left;
+		
+		if(y.left != tree.NIL) {
+			y.left.parent = node;
+		}y.parent = node.parent;
+		
+		if(node.parent == tree.NIL) {
+			tree.root = y;
+		}else if(node == node.parent.left) {
+			node.parent.left = y;
+		}else {
+			node.parent.right = y;
+		}
+		
+		y.left = node;
+		node.parent = y;
+	}
+	
+	//TODO fix to rotate right correctly
+	public void rightRotate (RBTree tree, Node node) {
+		Node y = node.right;
+		node.right = y.left;
+		
+		if(y.left != tree.NIL) {
+			y.left.parent = node;
+		}y.parent = node.parent;
+		
+		if(node.parent == tree.NIL) {
+			tree.root = y;
+		}else if(node == node.parent.left) {
+			node.parent.left = y;
+		}else {
+			node.parent.right = y;
+		}
+		
+		y.left = node;
+		node.parent = y;
+	}
+	
 	
 	/**
 	 * This is a suggested way on how to add intervals and call POM()
@@ -94,4 +145,6 @@ public class Intervals {
 		}
 		System.out.println("POM is: "+ intv.findPOM()); //Should return 3.
 	}
+	
+	
 }
