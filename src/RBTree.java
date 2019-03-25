@@ -11,8 +11,21 @@ public class RBTree {
 	/**
 	 * RB Tree constructor. It initializes nil node as well.
 	 */
+	Node root;
+	Node NIL;
+	int nodeCount;
+	int height;
+	
 	public RBTree() {
 		//TODO: Add code as needed.
+		
+		this.NIL = new Node();
+		this.NIL.color = 1;
+		this.root = this.NIL;
+		NIL.parent = NIL;
+		NIL.left = NIL;
+		NIL.right = NIL;
+		
 	}
 	
 	/**
@@ -20,8 +33,8 @@ public class RBTree {
 	 * @return
 	 */
 	public Node getRoot() {
-		//TODO: Modify it accordingly.
-		return null;
+		
+		return this.root;
 	}
 	
 	/**
@@ -29,8 +42,7 @@ public class RBTree {
 	 * @return
 	 */
 	public Node getNILNode() {
-		//TODO: Modify it accordingly.
-		return null;
+		return this.NIL;
 	}
 	
 	/**
@@ -38,8 +50,7 @@ public class RBTree {
 	 * @return
 	 */
 	public int getSize() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return this.nodeCount;
 	}
 	
 	
@@ -48,8 +59,7 @@ public class RBTree {
 	 * @return
 	 */
 	public int getHeight() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return this.height;
 	}
 	
 	//Add more functions as  you see fit.
