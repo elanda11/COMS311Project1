@@ -7,7 +7,7 @@
  * Node class for RBTree.
  */
 public class Node {
-	ASDFJAWIRUA;ROGLJS;NIRVJNST;IDORGJNE;RIOUGJN;AREIULJNGS;I
+	
 	public Node parent;
 	public Node left;
 	public Node right;
