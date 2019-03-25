@@ -22,6 +22,10 @@ public class RBTree {
 		this.NIL = new Node();
 		this.NIL.color = 1;
 		this.root = this.NIL;
+		NIL.parent = NIL;
+		NIL.left = NIL;
+		NIL.right = NIL;
+		
 	}
 	
 	/**
