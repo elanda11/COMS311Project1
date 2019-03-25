@@ -108,7 +108,7 @@ public class Intervals {
 		node.parent = y;
 	}
 	
-	//TODO fix to rotate right correctly
+
 	public void rightRotate (RBTree tree, Node node) {
 		
 		Node y = node.parent;

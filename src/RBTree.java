@@ -63,4 +63,52 @@ public class RBTree {
 	}
 	
 	//Add more functions as  you see fit.
+	
+	/**
+	 * Computes value variable for nodes recursively
+	 * @param node
+	 * @return
+	 */
+	public int computeVal(Node node) {
+		
+		if(node == NIL) {
+			return 0;
+		}
+		
+		return computeVal(node.left) + node.p + computeVal(node.right); 
+		
+	}
+	
+	/**
+	 * Computes max value variable for nodes 
+	 * @param node
+	 */
+	
+	public void computeMaxVal(Node node) {
+			
+		node.maxval = max(node.left.getMaxVal(), node.right.getMaxVal() + node.getP(), node.left.getVal() + node.getP() + node.right.getMaxVal());
+		
+	}
+
+	/**
+	 * private three variable int comparator
+	 * @param first
+	 * @param second
+	 * @param third
+	 * @return
+	 */
+	private int max(int first, int second, int third) {
+		int max;
+		
+		if(first >= second && first >= third) {
+			max = first;
+		}else if(second >= first && second >= third) {
+			max = second;
+		}else {
+			max = third;
+		}
+		return max;
+	}
+	
+	
 }
