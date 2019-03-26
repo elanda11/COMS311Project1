@@ -14,7 +14,7 @@ public class RBTree {
 	Node root;
 	Node NIL;
 	int nodeCount;
-	int height;
+	int treeHeight;
 	
 	public RBTree() {
 		//TODO: Add code as needed.
@@ -59,7 +59,7 @@ public class RBTree {
 	 * @return
 	 */
 	public int getHeight() {
-		return this.height;
+		return this.treeHeight;
 	}
 	
 	//Add more functions as  you see fit.
@@ -108,6 +108,52 @@ public class RBTree {
 			max = third;
 		}
 		return max;
+	}
+	
+	/**
+	 * calculate height for tree
+	 * @param node
+	 */
+	private void calculateHeight(Node node) {
+		int nodeHeight = 1;
+		Node tempNode = searchTree (node, node.getKey());
+		
+		if(tempNode.equals(NIL)) {
+			nodeHeight = 0;
+		}
+		
+		while((!tempNode.equals(NIL))) {
+			tempNode = tempNode.parent;
+			nodeHeight++;
+		}
+		
+		if(nodeHeight > treeHeight) {
+			treeHeight = nodeHeight;
+		}
+		
+		
+	}
+	
+	/**
+	 * private search for node in order to calculate height
+	 * @param node
+	 * @param key
+	 * @return
+	 */
+	
+	private Node searchTree(Node node, int key) {
+		if(node.equals(NIL)) {
+			return NIL;
+		}
+				
+		if(key < node.getKey()) {
+			return searchTree (node.left, key);
+		}
+		
+		else {
+			return searchTree(node.right, key);
+		}
+		
 	}
 	
 	
