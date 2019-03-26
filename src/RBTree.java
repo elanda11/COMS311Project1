@@ -11,8 +11,21 @@ public class RBTree {
 	/**
 	 * RB Tree constructor. It initializes nil node as well.
 	 */
+	Node root;
+	Node NIL;
+	int nodeCount;
+	int height;
+	
 	public RBTree() {
 		//TODO: Add code as needed.
+		
+		this.NIL = new Node();
+		this.NIL.color = 1;
+		this.root = this.NIL;
+		NIL.parent = NIL;
+		NIL.left = NIL;
+		NIL.right = NIL;
+		
 	}
 	
 	/**
@@ -20,8 +33,8 @@ public class RBTree {
 	 * @return
 	 */
 	public Node getRoot() {
-		//TODO: Modify it accordingly.
-		return null;
+		
+		return this.root;
 	}
 	
 	/**
@@ -29,8 +42,7 @@ public class RBTree {
 	 * @return
 	 */
 	public Node getNILNode() {
-		//TODO: Modify it accordingly.
-		return null;
+		return this.NIL;
 	}
 	
 	/**
@@ -38,8 +50,7 @@ public class RBTree {
 	 * @return
 	 */
 	public int getSize() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return this.nodeCount;
 	}
 	
 	
@@ -48,9 +59,56 @@ public class RBTree {
 	 * @return
 	 */
 	public int getHeight() {
-		//TODO: Modify it accordingly.
-		return 0;
+		return this.height;
 	}
 	
 	//Add more functions as  you see fit.
+	
+	/**
+	 * Computes value variable for nodes recursively
+	 * @param node
+	 * @return
+	 */
+	public int computeVal(Node node) {
+		
+		if(node == NIL) {
+			return 0;
+		}
+		
+		return computeVal(node.left) + node.p + computeVal(node.right); 
+		
+	}
+	
+	/**
+	 * Computes max value variable for nodes 
+	 * @param node
+	 */
+	
+	public void computeMaxVal(Node node) {
+			
+		node.maxval = max(node.left.getMaxVal(), node.right.getMaxVal() + node.getP(), node.left.getVal() + node.getP() + node.right.getMaxVal());
+		
+	}
+
+	/**
+	 * private three variable int comparator
+	 * @param first
+	 * @param second
+	 * @param third
+	 * @return
+	 */
+	private int max(int first, int second, int third) {
+		int max;
+		
+		if(first >= second && first >= third) {
+			max = first;
+		}else if(second >= first && second >= third) {
+			max = second;
+		}else {
+			max = third;
+		}
+		return max;
+	}
+	
+	
 }
