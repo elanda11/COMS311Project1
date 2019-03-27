@@ -14,7 +14,7 @@ public class RBTree {
 	Node root;
 	Node NIL;
 	int nodeCount;
-	int height;
+	int treeHeight;
 
 	public RBTree() {
 		//TODO: Add code as needed.
@@ -59,7 +59,7 @@ public class RBTree {
 	 * @return
 	 */
 	public int getHeight() {
-		return this.height;
+		return this.treeHeight;
 	}
 
 	//Add more functions as  you see fit.
