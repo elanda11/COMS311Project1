@@ -25,7 +25,7 @@ public class Interval_Node {
     return leftEndpoint;
   }
 
-  public int getrightEndpoint() {
+  public int getRightEndpoint() {
     return rightEndpoint;
   }
 
@@ -37,7 +37,7 @@ public class Interval_Node {
     leftEndpoint = left;
   }
 
-  public void setrightEndpoint(int right) {
+  public void setRightEndpoint(int right) {
     rightEndpoint = right;
   }
 
