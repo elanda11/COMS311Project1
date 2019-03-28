@@ -29,7 +29,7 @@ public class RBTree {
 
 	
 	/**
-	 * Returns the root of teh tree.
+	 * Returns the root of the tree.
 	 * @return
 	 */
 	public Node getRoot() {

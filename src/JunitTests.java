@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 class JunitTests {
 
-	
 	@Test
 	void nodeColor() {
 		Node node = new Node();
