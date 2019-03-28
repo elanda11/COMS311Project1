@@ -10,9 +10,9 @@
 public class Intervals {
 	//private int ID = 0; If deletion is done, this could be used to keep track of edpoints
 	//                    for the same interval.
-
+	private RBTree tree;
 	private  int a, b;
-	RBTree tree;
+
 
 	/**
 	 * Constructor with no parameters.
