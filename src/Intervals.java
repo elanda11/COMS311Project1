@@ -12,6 +12,7 @@ public class Intervals {
 	//                    for the same interval.
 	private RBTree tree;
 	private  int a, b;
+	RBTree tree;
 
 	/**
 	 * Constructor with no parameters.

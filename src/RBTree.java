@@ -100,7 +100,11 @@ public class RBTree {
 		}
 	}
 
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 582be643fb67a0a3c703757e2d9492472f9a70ec
 
 	/**
 	 * private three variable int comparator
