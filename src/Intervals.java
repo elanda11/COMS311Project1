@@ -1,4 +1,4 @@
-import RBTree.java;
+
 /**
  * Team members:
  * @author Lauren Arner
@@ -19,7 +19,7 @@ public class Intervals {
 	public Intervals() {
 		//TODO: Complete it as needed
 		this.a = 0; this.b = 0;
-		RBTree tree = new RBTree();
+		RBTree tree = RBTree();
 	}
 
 	/**
@@ -84,8 +84,8 @@ public class Intervals {
 		toInsert.p = side;
 		toInsert.color = 0;
 
-	}
 
+	}
 
 	/**
 	 * This is a suggested way on how to add intervals and call POM()
