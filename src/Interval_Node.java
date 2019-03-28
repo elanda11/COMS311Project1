@@ -32,5 +32,17 @@ public class Interval_Node {
   public int getIntervalIndex() {
     return intervalIndex;
   }
-  
+
+  public void setLeftEndpoint(int left) {
+    leftEndpoint = left;
+  }
+
+  public void setrightEndpoint(int right) {
+    rightEndpoint = right;
+  }
+
+  public void setIntervalIndex(int i) {
+    intervalIndex = i;
+  }
+
 }
