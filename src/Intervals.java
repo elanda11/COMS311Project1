@@ -12,6 +12,7 @@ public class Intervals {
 	//                    for the same interval.
 
 	private  int a, b;
+	RBTree tree;
 
 	/**
 	 * Constructor with no parameters.
@@ -19,7 +20,7 @@ public class Intervals {
 	public Intervals() {
 		//TODO: Complete it as needed
 		this.a = 0; this.b = 0;
-		RBTree tree = RBTree();
+		tree = new RBTree();
 	}
 
 	/**
