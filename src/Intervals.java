@@ -13,7 +13,7 @@ public class Intervals {
 	private RBTree tree;
 	private  int a, b;
 	private index;
-	private Interval_Node[] arr_interal;
+	private Interval_Node[] arr_interval;
 
 
 	/**
@@ -88,8 +88,10 @@ public class Intervals {
 		toInsert.key = a;
 		toInsert.p = side;
 		toInsert.color = 0;
+	}
 
-
+	public Interval_Node[] getInterval() {
+		return arr_interval;
 	}
 
 	/**
