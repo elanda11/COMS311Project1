@@ -12,7 +12,7 @@ public class Intervals {
 	//                    for the same interval.
 	private RBTree tree;
 	private  int a, b;
-	private index;
+	private int index;
 	private Interval_Node[] arr_interval;
 
 
@@ -24,7 +24,7 @@ public class Intervals {
 		this.a = 0; this.b = 0;
 		tree = new RBTree();
 		index = 0;
-		arr_interval = new Interval_Node[];
+		arr_interval = new Interval_Node[10];
 	}
 
 	/**
