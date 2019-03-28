@@ -167,6 +167,47 @@ public class RBTree {
 
 	}
 
+	
+	public void leftRotate (Node node) {
+		Node y = node.right;
+		node.right = y.left;
+		
+		if(y.left != NIL) {
+			y.left.parent = node;
+		}y.parent = node.parent;
+		
+		if(node.parent == NIL) {
+			root = y;
+		}else if(node == node.parent.left) {
+			node.parent.left = y;
+		}else {
+			node.parent.right = y;
+		}
+		
+		y.left = node;
+		node.parent = y;
+	}
+	
+
+	public void rightRotate (Node node) {
+		
+		Node y = node.parent;
+		y.left = node.right;
+		if(node.right != null) {
+			node.right.parent = y;
+		}node.parent = y.parent;
+		if(y.parent == null) {
+			root = node;
+		}else if(y == y.parent.right) {
+			y.parent.right = node;
+		}else {
+			y.parent.left = y;
+		}
+		
+		
+	}
+	
+	
 	public void RBInsertFixup( RBTree T, Node z){
 		Node y = new Node();
 
@@ -234,5 +275,6 @@ public class RBTree {
 
 
 	}
+
 
 }
