@@ -12,6 +12,8 @@ public class Intervals {
 	//                    for the same interval.
 	private RBTree tree;
 	private  int a, b;
+	private index;
+	private Interval_Node[] arr_interal;
 
 
 	/**
@@ -21,6 +23,8 @@ public class Intervals {
 		//TODO: Complete it as needed
 		this.a = 0; this.b = 0;
 		tree = new RBTree();
+		index = 0;
+		arr_interval = new Interval_Node[];
 	}
 
 	/**
