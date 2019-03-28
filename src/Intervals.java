@@ -1,4 +1,4 @@
-
+import RBTree.java;
 /**
  * Team members:
  * @author Lauren Arner
@@ -19,7 +19,7 @@ public class Intervals {
 	public Intervals() {
 		//TODO: Complete it as needed
 		this.a = 0; this.b = 0;
-		RBTree tree = RBTree();
+		RBTree tree = new RBTree();
 	}
 
 	/**
@@ -83,45 +83,6 @@ public class Intervals {
 		toInsert.key = a;
 		toInsert.p = side;
 		toInsert.color = 0;
-
-
-	}
-
-	public void leftRotate (RBTree tree, Node node) {
-		Node y = node.right;
-		node.right = y.left;
-
-		if(y.left != tree.NIL) {
-			y.left.parent = node;
-		}y.parent = node.parent;
-
-		if(node.parent == tree.NIL) {
-			tree.root = y;
-		}else if(node == node.parent.left) {
-			node.parent.left = y;
-		}else {
-			node.parent.right = y;
-		}
-
-		y.left = node;
-		node.parent = y;
-	}
-
-
-	public void rightRotate (RBTree tree, Node node) {
-
-		Node y = node.parent;
-		y.left = node.right;
-		if(node.right != null) {
-			node.right.parent = y;
-		}node.parent = y.parent;
-		if(y.parent == null) {
-			tree.root = node;
-		}else if(y == y.parent.right) {
-			y.parent.right = node;
-		}else {
-			y.parent.left = y;
-		}
 
 	}
 
