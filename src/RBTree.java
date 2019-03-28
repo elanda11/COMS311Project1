@@ -19,25 +19,24 @@ public class RBTree {
 
 	public RBTree() {
 		//TODO: Add code as needed.
-
 		this.NIL = new Node	();
 		this.NIL.color = 1;
 		this.root = this.NIL;
 		NIL.parent = NIL;
 		NIL.left = NIL;
 		NIL.right = NIL;
-
 	}
 
+	
 	/**
 	 * Returns the root of teh tree.
 	 * @return
 	 */
 	public Node getRoot() {
-
 		return this.root;
 	}
 
+	
 	/**
 	 * Returns reference for the nil node, for the rbTree.
 	 * @return
@@ -45,6 +44,7 @@ public class RBTree {
 	public Node getNILNode() {
 		return this.NIL;
 	}
+	
 
 	/**
 	 * Returns the number of internal nodes in the tree.
@@ -75,16 +75,14 @@ public class RBTree {
 		if(node == NIL) {
 			return 0;
 		}
-
 		return computeVal(node.left) + node.p + computeVal(node.right);
-
 	}
 
+	
 	/**
 	 * Computes max value variable for nodes
 	 * @param node
 	 */
-
 	public void computeMaxVal(Node node) {
 
 		node.maxval = max(node.left.getMaxVal(), node.right.getMaxVal() + node.getP(), node.left.getVal() + node.getP() + node.right.getMaxVal());
@@ -100,11 +98,6 @@ public class RBTree {
 		}
 	}
 
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> 582be643fb67a0a3c703757e2d9492472f9a70ec
 
 	/**
 	 * private three variable int comparator
@@ -125,6 +118,7 @@ public class RBTree {
 		}
 		return max;
 	}
+	
 
 	/**
 	 * calculate height for tree
@@ -146,17 +140,15 @@ public class RBTree {
 		if(nodeHeight > treeHeight) {
 			treeHeight = nodeHeight;
 		}
-
-
 	}
 
+	
 	/**
 	 * private search for node in order to calculate height
 	 * @param node
 	 * @param key
 	 * @return
 	 */
-
 	private Node searchTree(Node node, int key) {
 		if(node.equals(NIL)) {
 			return NIL;
@@ -169,10 +161,13 @@ public class RBTree {
 		else {
 			return searchTree(node.right, key);
 		}
-
 	}
 
 	
+	/**
+	 * performs left rotation on given node
+	 * @param node
+	 */
 	public void leftRotate (Node node) {
 		Node y = node.right;
 		node.right = y.left;
@@ -193,7 +188,11 @@ public class RBTree {
 		node.parent = y;
 	}
 	
-
+	
+	/**
+	 * performs right rotation on given node
+	 * @param node
+	 */
 	public void rightRotate (Node node) {
 		
 		Node y = node.parent;
@@ -208,11 +207,13 @@ public class RBTree {
 		}else {
 			y.parent.left = y;
 		}
-		
-		
 	}
 	
 	
+	/**
+	 * Helper method for RBInsert to "fixup" the freshly inserted node
+	 * @param node
+	 */
 	public void RBInsertFixup(Node z){
 		Node y = new Node();
 		while (z.parent.color == 0){
@@ -260,8 +261,11 @@ public class RBTree {
 		
 	
 
-
-	public void RBInsert(Node z)	{
+	/**
+	 * Correctly inserts given node into RB tree and then calls RBInsertFixup method
+	 * @param node
+	 */
+	public void RBInsert(Node z) {
 		Node y = NIL;
 		Node x = root;
 		while (x != NIL) {
@@ -288,5 +292,4 @@ public class RBTree {
 		z.color = 0;
 		RBInsertFixup(z);
 	}
-
 }
