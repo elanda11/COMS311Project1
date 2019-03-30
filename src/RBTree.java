@@ -294,7 +294,7 @@ public class RBTree {
 	}
 
 	public void inOrder(Node z) {
-
+	}
 		if (z != null) {
 			inOrder(z.getLeft());
 			visit(z);
