@@ -12,6 +12,13 @@ import java.util.Arrays;
 public class Intervals {
 	//private int ID = 0; If deletion is done, this could be used to keep track of edpoints
 	//                    for the same interval.
+<<<<<<< HEAD
+=======
+	private RBTree tree;
+	private  int a, b;
+	private int index;
+	private Interval_Node[] arr_interval;
+>>>>>>> Justin_v2
 
 	private int a, b;
 	private int[] RBT;
@@ -22,6 +29,12 @@ public class Intervals {
 	public Intervals() {
 		//TODO: Complete it as needed
 		this.a = 0; this.b = 0;
+<<<<<<< HEAD
+=======
+		tree = new RBTree();
+		index = 0;
+		arr_interval = new Interval_Node[10];
+>>>>>>> Justin_v2
 	}
 
 	/**
@@ -87,6 +100,7 @@ public class Intervals {
 		toInsert.p = side;
 		toInsert.color = 0;
 
+<<<<<<< HEAD
 
 	}
 
@@ -108,6 +122,9 @@ public class Intervals {
 
 		y.left = node;
 		node.parent = y;
+=======
+		RBInsert(toInsert);
+>>>>>>> Justin_v2
 	}
 
 
