@@ -1,6 +1,4 @@
 
-
-
 /**
  * Team members:
  * @author Lauren Arner
@@ -170,27 +168,24 @@ public class RBTree {
 	 * performs left rotation on given node
 	 * @param node
 	 */
-	public void leftRotate (Node x) {
-		Node y = x.right;
-		x.right = y.left;
+	public void leftRotate (Node node) { //correct
+		Node y = node.right;
+		node.right = y.left;
 
 		if(y.left != NIL) {
-			y.left.parent = x;
-		} y.parent = x.parent;
+			y.left.parent = node;
+		}y.parent = node.parent;
 
-		if(x.parent == NIL) {
+		if(node.parent == NIL) {
 			root = y;
+		}else if(node == node.parent.left) {
+			node.parent.left = y;
+		}else {
+			node.parent.right = y;
 		}
 
-		else if(x == x.parent.left) {
-			x.parent.left = y;
-		}
-
-		else {
-			x.parent.right = y;
-		}
-		y.left = x;
-		x.parent = y;
+		y.left = node;
+		node.parent = y;
 	}
 
 
@@ -198,27 +193,20 @@ public class RBTree {
 	 * performs right rotation on given node
 	 * @param node
 	 */
-	public void rightRotate (Node x) {
-		Node y = x.left;
-		x.left = y.right;
+	public void rightRotate (Node node) { //correct
 
-		if(y.right != NIL) {
-			y.right.parent = x;
-		} y.parent = x.parent;
-
-		if(x.parent == NIL) {
-			root = y;
+		Node y = node.parent;
+		y.left = node.right;
+		if(node.right != null) {
+			node.right.parent = y;
+		}node.parent = y.parent;
+		if(y.parent == null) {
+			root = node;
+		}else if(y == y.parent.right) {
+			y.parent.right = node;
+		}else {
+			y.parent.left = y;
 		}
-
-		else if(x == x.parent.right) {
-			x.parent.right = y;
-		}
-
-		else {
-			x.parent.left = y;
-		}
-		y.right = x;
-		x.parent = y;
 	}
 
 
@@ -304,4 +292,21 @@ public class RBTree {
 		z.color = 0;
 		RBInsertFixup(z);
 	}
+
+	public void inOrder(Node z) {
+
+		if (z != null) {
+			inOrder(z.getLeft());
+			visit(z);
+			inOrder(z.getRight());
+		}
+
+	}
+
+	public void visit(Node z) {
+		computeVal(z);
+		computeMaxVal(z);
+	}
+
+
 }
