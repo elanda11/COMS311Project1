@@ -54,6 +54,7 @@ public class Intervals {
 		intervalNode.intervalIndex = index;
 		
 		intervalList.add(intervalNode);
+		tree.inOrder(tree.getRoot());
 	}
 
 	/**

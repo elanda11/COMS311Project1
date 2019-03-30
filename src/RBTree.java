@@ -293,6 +293,7 @@ public class RBTree {
 		RBInsertFixup(z);
 	}
 
+	// helper methods to make sure all nodes values are recomputed after an insertion
 	public void inOrder(Node z) {
 
 		if (z != null) {
