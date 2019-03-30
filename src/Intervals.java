@@ -54,6 +54,7 @@ public class Intervals {
 		intervalNode.intervalIndex = index;
 		
 		intervalList.add(intervalNode);
+		
 		tree.inOrder(tree.getRoot());
 	}
 
@@ -105,8 +106,7 @@ public class Intervals {
 		toInsert.key = a;
 		toInsert.p = side;
 		toInsert.color = 0;
-		tree.computeVal(toInsert);
-		tree.computeMaxVal(toInsert);
+		tree.RBInsert(toInsert);
 	}
 
 
