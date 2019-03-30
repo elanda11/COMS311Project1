@@ -170,45 +170,27 @@ public class RBTree {
 	 * performs left rotation on given node
 	 * @param node
 	 */
-<<<<<<< HEAD
 	public void leftRotate (Node x) {
 		Node y = x.right;
 		x.right = y.left;
-		
+
 		if(y.left != NIL) {
 			y.left.parent = x;
 		} y.parent = x.parent;
-		
+
 		if(x.parent == NIL) {
-=======
-	public void leftRotate (Node node) { //correct
-		Node y = node.right;
-		node.right = y.left;
-
-		if(y.left != NIL) {
-			y.left.parent = node;
-		}y.parent = node.parent;
-
-		if(node.parent == NIL) {
->>>>>>> Justin_v2
 			root = y;
 		}
-<<<<<<< HEAD
-		
+
 		else if(x == x.parent.left) {
 			x.parent.left = y;
 		}
-		
+
 		else {
 			x.parent.right = y;
 		}
 		y.left = x;
 		x.parent = y;
-=======
-
-		y.left = node;
-		node.parent = y;
->>>>>>> Justin_v2
 	}
 
 
@@ -216,40 +198,24 @@ public class RBTree {
 	 * performs right rotation on given node
 	 * @param node
 	 */
-<<<<<<< HEAD
 	public void rightRotate (Node x) {
 		Node y = x.left;
 		x.left = y.right;
-		
+
 		if(y.right != NIL) {
 			y.right.parent = x;
 		} y.parent = x.parent;
-		
+
 		if(x.parent == NIL) {
 			root = y;
 		}
-		
+
 		else if(x == x.parent.right) {
 			x.parent.right = y;
 		}
-		
+
 		else {
 			x.parent.left = y;
-=======
-	public void rightRotate (Node node) { //correct
-
-		Node y = node.parent;
-		y.left = node.right;
-		if(node.right != null) {
-			node.right.parent = y;
-		}node.parent = y.parent;
-		if(y.parent == null) {
-			root = node;
-		}else if(y == y.parent.right) {
-			y.parent.right = node;
-		}else {
-			y.parent.left = y;
->>>>>>> Justin_v2
 		}
 		y.right = x;
 		x.parent = y;
