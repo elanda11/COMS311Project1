@@ -181,10 +181,10 @@
 	  assertEquals(scratchtree.getRoot().getColor(), 1);
   }
 
-//  @Test public void Insert() {
-//    tree.RBInsert(node6);
-//    assertEquals(tree.getRoot().getKey(), 4);
-//    assertEquals(tree.getRoot().getColor(), 1);
-//    }
+  @Test public void Insert() {
+    tree.RBInsert(node6);
+    assertEquals(tree.getRoot().getKey(), 4);
+    assertEquals(tree.getRoot().getColor(), 1);
+   }
 
 }
