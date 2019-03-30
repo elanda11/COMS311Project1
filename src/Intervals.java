@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -15,10 +16,8 @@ public class Intervals {
 	private RBTree tree;
 	private  int a, b;
 	private int index;
-	private Interval_Node[] arr_interval;
+	private ArrayList<Interval_Node> intervalList;
 
-	private int a, b;
-	private int[] RBT;
 
 	/**
 	 * Constructor with no parameters.
@@ -27,8 +26,7 @@ public class Intervals {
 		//TODO: Complete it as needed
 		this.a = 0; this.b = 0;
 		tree = new RBTree();
-		index = 0;
-		arr_interval = new Interval_Node[10];
+		intervalList= new ArrayList<Interval_Node>();
 	}
 
 	/**
@@ -82,7 +80,7 @@ public class Intervals {
 	 */
 	RBTree getRBTree() {
 		//TODO: Modify it accordingly.
-		return null;
+		return tree;
 	}
 
 
@@ -93,27 +91,6 @@ public class Intervals {
 		toInsert.key = a;
 		toInsert.p = side;
 		toInsert.color = 0;
-
-		RBInsert(toInsert);
-	}
-
-
-	public void rightRotate (RBTree tree, Node node) {
-
-		Node y = node.parent;
-		y.left = node.right;
-		if(node.right != null) {
-			node.right.parent = y;
-		}node.parent = y.parent;
-		if(y.parent == null) {
-			tree.root = node;
-		}else if(y == y.parent.right) {
-			y.parent.right = node;
-		}else {
-			y.parent.left = y;
-		}
-
-
 	}
 
 
