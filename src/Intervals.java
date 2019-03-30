@@ -43,6 +43,8 @@ public class Intervals {
 	 * @param b
 	 */
 	void intervalInsert(int a, int b) {
+		index++;
+		
 		insert(a, 1);
 		insert(b, -1);
 
