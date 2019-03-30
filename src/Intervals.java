@@ -44,10 +44,16 @@ public class Intervals {
 	 */
 	void intervalInsert(int a, int b) {
 		index++;
-		
 		insert(a, 1);
 		insert(b, -1);
-
+		
+		//TODO need to implement Endpoint object somehow also
+		Interval_Node intervalNode = new Interval_Node();
+		intervalNode.leftEndpoint = a;
+		intervalNode.leftEndpoint = b;
+		intervalNode.intervalIndex = index;
+		
+		intervalList.add(intervalNode);
 	}
 
 	/**
@@ -88,11 +94,18 @@ public class Intervals {
 
 	//Add more functions as  you see fit.
 
+	/**
+	 * custom insert function to help set up interval insert
+	 * @param a
+	 * @param side
+	 */
 	public void insert(int a, int side) {
 		Node toInsert = new Node();
 		toInsert.key = a;
 		toInsert.p = side;
 		toInsert.color = 0;
+		tree.computeVal(toInsert);
+		tree.computeMaxVal(toInsert);
 	}
 
 
