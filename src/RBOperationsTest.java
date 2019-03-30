@@ -8,6 +8,7 @@
   // Instance variables
   RBTree tree;
   RBTree testtree;
+  RBTree scratchtree;
   Node tnode1;
   Node tnode2;
   Node tnode3;
@@ -20,14 +21,14 @@
   Node node6;
   Node node7;
   Node node8;
+  Node insert1;
+  Node insert2;
+  Node insert3;
+  Node insert4;
+
 
   @Before public void initialize() {
-	tree = new RBTree();
-    testtree = new RBTree();
-    tnode1 = new Node();
-    tnode2 = new Node();
-    tnode3 = new Node();
-    tinsert = new Node();
+	  tree = new RBTree();
     node4 = new Node();
     node2 = new Node();
     node7 = new Node();
@@ -36,6 +37,27 @@
     node5 = new Node();
     node8 = new Node();
     node6 = new Node();
+
+    testtree = new RBTree();
+    tnode1 = new Node();
+    tnode2 = new Node();
+    tnode3 = new Node();
+    tinsert = new Node();
+
+    scratchtree = new RBTree();
+    insert1 = new Node();
+    insert2 = new Node();
+    insert3 = new Node();
+    insert4 = new Node();
+
+    insert1.key = 1;
+    insert1.color = 0;
+    insert2.key = 2;
+    insert2.color = 0;
+    insert3.key = 3;
+    insert3.color = 0;
+    insert4.key = 4;
+    insert4.color = 0;
 
     tnode1.parent = testtree.NIL;
     tnode1.left = tnode2;
@@ -145,6 +167,19 @@
 	  assertEquals(tinsert.getColor(), 0);
   }
 
+  @Test public void testTwoInsert1() {
+	  scratchtree.RBInsert(insert1);
+	  assertEquals(scratchtree.getRoot(), insert1);
+	  assertEquals(scratchtree.getRoot().getColor(), 1);
+	  scratchtree.RBInsert(insert2);
+	  assertEquals(scratchtree.getRoot().getRight(), insert2);
+	  assertEquals(scratchtree.getRoot().getLeft(), scratchtree.NIL);
+	  scratchtree.RBInsert(insert3);
+	  assertEquals(scratchtree.getRoot(), insert2);
+	  assertEquals(scratchtree.getRoot().getLeft(), insert1);
+	  assertEquals(scratchtree.getRoot().getRight(), insert3);
+	  assertEquals(scratchtree.getRoot().getColor(), 1);
+  }
 
 //  @Test public void Insert() {
 //    tree.RBInsert(node6);
