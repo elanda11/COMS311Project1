@@ -88,6 +88,8 @@ public class Intervals {
 		toInsert.key = a;
 		toInsert.p = side;
 		toInsert.color = 0;
+
+		RBInsert(toInsert);
 	}
 
 	public Interval_Node[] getInterval() {

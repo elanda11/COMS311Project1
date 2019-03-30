@@ -27,7 +27,7 @@ public class RBTree {
 		NIL.right = NIL;
 	}
 
-	
+
 	/**
 	 * Returns the root of the tree.
 	 * @return
@@ -36,7 +36,7 @@ public class RBTree {
 		return this.root;
 	}
 
-	
+
 	/**
 	 * Returns reference for the nil node, for the rbTree.
 	 * @return
@@ -44,7 +44,7 @@ public class RBTree {
 	public Node getNILNode() {
 		return this.NIL;
 	}
-	
+
 
 	/**
 	 * Returns the number of internal nodes in the tree.
@@ -78,7 +78,7 @@ public class RBTree {
 		return computeVal(node.left) + node.p + computeVal(node.right);
 	}
 
-	
+
 	/**
 	 * Computes max value variable for nodes
 	 * @param node
@@ -118,7 +118,7 @@ public class RBTree {
 		}
 		return max;
 	}
-	
+
 
 	/**
 	 * calculate height for tree
@@ -142,7 +142,7 @@ public class RBTree {
 		}
 	}
 
-	
+
 	/**
 	 * private search for node in order to calculate height
 	 * @param node
@@ -163,19 +163,19 @@ public class RBTree {
 		}
 	}
 
-	
+
 	/**
 	 * performs left rotation on given node
 	 * @param node
 	 */
-	public void leftRotate (Node node) {
+	public void leftRotate (Node node) { //correct
 		Node y = node.right;
 		node.right = y.left;
-		
+
 		if(y.left != NIL) {
 			y.left.parent = node;
 		}y.parent = node.parent;
-		
+
 		if(node.parent == NIL) {
 			root = y;
 		}else if(node == node.parent.left) {
@@ -183,18 +183,18 @@ public class RBTree {
 		}else {
 			node.parent.right = y;
 		}
-		
+
 		y.left = node;
 		node.parent = y;
 	}
-	
-	
+
+
 	/**
 	 * performs right rotation on given node
 	 * @param node
 	 */
-	public void rightRotate (Node node) {
-		
+	public void rightRotate (Node node) { //correct
+
 		Node y = node.parent;
 		y.left = node.right;
 		if(node.right != null) {
@@ -208,13 +208,13 @@ public class RBTree {
 			y.parent.left = y;
 		}
 	}
-	
-	
+
+
 	/**
 	 * Helper method for RBInsert to "fixup" the freshly inserted node
 	 * @param node
 	 */
-	public void RBInsertFixup(Node z){
+	public void RBInsertFixup(Node z){ //TODO check if it's right
 		Node y = new Node();
 		while (z.parent.color == 0){
 		if (z.parent == z.parent.parent.left){
@@ -258,14 +258,14 @@ public class RBTree {
 		}
 		root.color = 1;
 	}
-		
-	
+
+
 
 	/**
 	 * Correctly inserts given node into RB tree and then calls RBInsertFixup method
 	 * @param node
 	 */
-	public void RBInsert(Node z) {
+	public void RBInsert(Node z) { //insert is correct, not considering RBfixup
 		Node y = NIL;
 		Node x = root;
 		while (x != NIL) {
