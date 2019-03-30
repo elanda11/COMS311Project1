@@ -1,4 +1,6 @@
 
+import java.util.Arrays;
+
 /**
  * Team members:
  * @author Lauren Arner
@@ -10,11 +12,9 @@
 public class Intervals {
 	//private int ID = 0; If deletion is done, this could be used to keep track of edpoints
 	//                    for the same interval.
-	private RBTree tree;
-	private  int a, b;
-	private int index;
-	private Interval_Node[] arr_interval;
 
+	private int a, b;
+	private int[] RBT;
 
 	/**
 	 * Constructor with no parameters.
@@ -22,9 +22,6 @@ public class Intervals {
 	public Intervals() {
 		//TODO: Complete it as needed
 		this.a = 0; this.b = 0;
-		tree = new RBTree();
-		index = 0;
-		arr_interval = new Interval_Node[10];
 	}
 
 	/**
@@ -77,7 +74,8 @@ public class Intervals {
 	 * @return
 	 */
 	RBTree getRBTree() {
-		return tree;
+		//TODO: Modify it accordingly.
+		return null;
 	}
 
 
@@ -88,11 +86,49 @@ public class Intervals {
 		toInsert.key = a;
 		toInsert.p = side;
 		toInsert.color = 0;
+
+
 	}
 
-	public Interval_Node[] getInterval() {
-		return arr_interval;
+	public void leftRotate (RBTree tree, Node node) {
+		Node y = node.right;
+		node.right = y.left;
+
+		if(y.left != tree.NIL) {
+			y.left.parent = node;
+		}y.parent = node.parent;
+
+		if(node.parent == tree.NIL) {
+			tree.root = y;
+		}else if(node == node.parent.left) {
+			node.parent.left = y;
+		}else {
+			node.parent.right = y;
+		}
+
+		y.left = node;
+		node.parent = y;
 	}
+
+
+	public void rightRotate (RBTree tree, Node node) {
+
+		Node y = node.parent;
+		y.left = node.right;
+		if(node.right != null) {
+			node.right.parent = y;
+		}node.parent = y.parent;
+		if(y.parent == null) {
+			tree.root = node;
+		}else if(y == y.parent.right) {
+			y.parent.right = node;
+		}else {
+			y.parent.left = y;
+		}
+
+
+	}
+
 
 	/**
 	 * This is a suggested way on how to add intervals and call POM()
@@ -112,3 +148,4 @@ public class Intervals {
 
 
 }
+
