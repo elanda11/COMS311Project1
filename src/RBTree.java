@@ -275,28 +275,37 @@ public class RBTree {
 		RBInsertFixup(z);
 	}
 
-	/**
-	 * Traverse the tree in-order
-	 * @param z
-	 */
-	public void inOrder(Node z) {
 
-		if (z != null) {
-			inOrder(z.getLeft());
-			visit(z);
-			inOrder(z.getRight());
+	public void update(Node z, RBTree tree) {
+
+		if (z == tree.getRoot()) {
+			return;
 		}
-
-	}
-
-	/**
-	 * calculates the Val, maxVal, and emax for each node in the tree, called by inOrder()
-	 * @param z
-	 */
-	public void visit(Node z) {
 		computeVal(z);
 		computeMaxVal(z);
+		update(z.getParent(), tree);
+
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

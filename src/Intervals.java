@@ -11,7 +11,7 @@ import java.util.Arrays;
  * A wrapper class for RBTree
  */
 public class Intervals {
-	private RBTree tree = new RBTree();
+	private RBTree tree;
 	private  int a, b;
 	private ArrayList<Endpoint> endpointList = new ArrayList<Endpoint>();
 	private ArrayList<Intervals> intervalsList = new ArrayList<Intervals>();
@@ -23,6 +23,7 @@ public class Intervals {
 	public Intervals() {
 		this.a = 0;
 		this.b = 0;
+		tree = new RBTree();
 	}
 
 	/**
@@ -39,27 +40,23 @@ public class Intervals {
 	 * @param b
 	 */
 	void intervalInsert(int a, int b) {
-		
+
 		//custom insertion helper methods
 		insert(a, 1);
-		insert(b, -1);	
-		
+		insert(b, -1);
+
 		//adds endpoints into endpoint array list
 		Endpoint point1 = new Endpoint(a);
 		Endpoint point2 = new Endpoint(b);
 		endpointList.add(point1);
 		endpointList.add(point2);
-		
+
 		//adds interval to intervals array list
 		//index of the intervals Arraylist is the interval "ID"
 		Intervals interval = new Intervals();
 		interval.a = a;
 		interval.b = b;
 		intervalsList.add(interval);
-		
-		
-		//custom in order method resets val and maxval for every new insertion 
-		tree.inOrder(tree.getRoot());
 	}
 
 	/**
@@ -111,6 +108,7 @@ public class Intervals {
 		toInsert.p = side;
 		toInsert.color = 0;
 		tree.RBInsert(toInsert);
+		tree.update(toInsert, tree);
 	}
 
 
