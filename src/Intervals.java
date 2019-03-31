@@ -51,7 +51,7 @@ public class Intervals {
 		endpointList.add(point2);
 		
 		//adds interval to intervals array list
-		//index of the arraylist is the interval "ID"
+		//index of the intervals Arraylist is the interval "ID"
 		Intervals interval = new Intervals();
 		interval.a = a;
 		interval.b = b;
