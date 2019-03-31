@@ -15,7 +15,7 @@ public class Intervals {
 	//                    for the same interval.
 	private RBTree tree;
 	private  int a, b;
-	private int index;
+	private int intervalID;
 	private ArrayList<Interval_Node> intervalList;
 
 
@@ -43,18 +43,20 @@ public class Intervals {
 	 * @param b
 	 */
 	void intervalInsert(int a, int b) {
-		index++;
+		intervalID++;
 		insert(a, 1);
-		insert(b, -1);
+		insert(b, -1);	
 		
-		//TODO need to implement Endpoint object somehow also
+		//adds interval node to our custom interval_Node class
 		Interval_Node intervalNode = new Interval_Node();
 		intervalNode.leftEndpoint = a;
 		intervalNode.leftEndpoint = b;
-		intervalNode.intervalIndex = index;
-		
+		intervalNode.intervalIndex = intervalID;
 		intervalList.add(intervalNode);
 		
+		
+		
+		//custom in order method resets val and maxval for every new insertion 
 		tree.inOrder(tree.getRoot());
 	}
 
