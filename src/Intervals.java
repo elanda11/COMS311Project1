@@ -17,7 +17,7 @@ public class Intervals {
 	private  int a, b;
 	private int intervalID;
 	private ArrayList<Endpoint> endpointList;
-	private Array[][] intervalNodes = new array[20][20];
+	private int[][] intervalNodes = new int[20][20];
 
 
 	/**
@@ -48,8 +48,11 @@ public class Intervals {
 		insert(a, 1);
 		insert(b, -1);	
 		
-		//adds interval node to our custom interval_Node class
-		Endpoint intervalNode = new Endpoint();
+		//adds endpoints into endpoint array list
+		Endpoint point1 = new Endpoint(a);
+		Endpoint point2 = new Endpoint(b);
+		endpointList.add(point1);
+		endpointList.add(point2);
 		
 		
 		
