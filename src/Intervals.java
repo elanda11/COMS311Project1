@@ -16,7 +16,8 @@ public class Intervals {
 	private RBTree tree;
 	private  int a, b;
 	private int intervalID;
-	private ArrayList<Interval_Node> intervalList;
+	private ArrayList<Endpoint> endpointList;
+	private Array[][] intervalNodes = new array[20][20];
 
 
 	/**
@@ -26,7 +27,7 @@ public class Intervals {
 		//TODO: Complete it as needed
 		this.a = 0; this.b = 0;
 		tree = new RBTree();
-		intervalList= new ArrayList<Interval_Node>();
+		endpointList= new ArrayList<Endpoint>();
 	}
 
 	/**
@@ -48,11 +49,7 @@ public class Intervals {
 		insert(b, -1);	
 		
 		//adds interval node to our custom interval_Node class
-		Interval_Node intervalNode = new Interval_Node();
-		intervalNode.leftEndpoint = a;
-		intervalNode.leftEndpoint = b;
-		intervalNode.intervalIndex = intervalID;
-		intervalList.add(intervalNode);
+		Endpoint intervalNode = new Endpoint();
 		
 		
 		
