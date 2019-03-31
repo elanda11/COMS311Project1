@@ -13,10 +13,8 @@ import java.util.Arrays;
 public class Intervals {
 	private RBTree tree = new RBTree();
 	private  int a, b;
-	private int intervalID = 0;
 	private ArrayList<Endpoint> endpointList = new ArrayList<Endpoint>();
-	private Intervals[] intervalNodes = new Intervals[20];
-
+	private ArrayList<Intervals> intervalsList = new ArrayList<Intervals>();
 
 
 	/**
@@ -41,7 +39,8 @@ public class Intervals {
 	 * @param b
 	 */
 	void intervalInsert(int a, int b) {
-		intervalID++;
+		
+		//custom insertion helper methods
 		insert(a, 1);
 		insert(b, -1);	
 		
@@ -51,6 +50,12 @@ public class Intervals {
 		endpointList.add(point1);
 		endpointList.add(point2);
 		
+		//adds interval to intervals array list
+		//index of the arraylist is the interval "ID"
+		Intervals interval = new Intervals();
+		interval.a = a;
+		interval.b = b;
+		intervalsList.add(interval);
 		
 		
 		//custom in order method resets val and maxval for every new insertion 
