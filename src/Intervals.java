@@ -11,23 +11,19 @@ import java.util.Arrays;
  * A wrapper class for RBTree
  */
 public class Intervals {
-	//private int ID = 0; If deletion is done, this could be used to keep track of edpoints
-	//                    for the same interval.
-	private RBTree tree;
+	private RBTree tree = new RBTree();
 	private  int a, b;
-	private int intervalID;
-	private ArrayList<Endpoint> endpointList;
-	private Array[][] intervalNodes = new array[20][20];
+	private int intervalID = 0;
+	private ArrayList<Endpoint> endpointList = new ArrayList<Endpoint>();
+	private Intervals[] intervalNodes = new Intervals[20];
 
 
 	/**
 	 * Constructor with no parameters.
 	 */
 	public Intervals() {
-		//TODO: Complete it as needed
-		this.a = 0; this.b = 0;
-		tree = new RBTree();
-		endpointList= new ArrayList<Endpoint>();
+		this.a = 0;
+		this.b = 0;
 	}
 
 	/**
@@ -44,17 +40,22 @@ public class Intervals {
 	 * @param b
 	 */
 	void intervalInsert(int a, int b) {
-		intervalID++;
 		insert(a, 1);
-		insert(b, -1);	
-		
+		insert(b, -1);
+
 		//adds interval node to our custom interval_Node class
-		Endpoint intervalNode = new Endpoint();
-		
-		
-		
-		//custom in order method resets val and maxval for every new insertion 
+		Endpoint intervalNode = new Endpoint(a);
+		endpointList.add(intervalNode);
+
+		Intervals fuck = new Intervals();
+		fuck.a = a;
+		fuck.b = b;
+
+		intervalNodes[intervalID] = fuck;
+
+		//custom in order method resets val and maxval for every new insertion
 		tree.inOrder(tree.getRoot());
+		intervalID++;
 	}
 
 	/**
