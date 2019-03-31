@@ -24,23 +24,61 @@ public class DataStructTest {
 		node4 = new Node();
 		node5 = new Node();
 		node6 = new Node();
+		node7 = new Node();
+		node8 = new Node();
 
-		node1.parent = node2;
-		node1.left = tree.NIL;
-		node1.right = tree.NIL;
+
 		node1.key = 0;
-		node1.color = 1;
-		node1.val = 1;
-		node1.p = 1;
-		node1.maxval =
+		node1.color = 0;
 
-		tree.root = node4;
+		node2.key = 1;
+		node2.color = 0;
+
+		node3.key = 3;
+		node3.color = 0;
+
+		node4.key = 4;
+		node4.color = 0;
+
+		node5.key = 6;
+		node5.color = 0;
+
+		node6.key = 7;
+		node6.color = 0;
+
+		node7.key = 9;
+		node7.color = 0;
+
+		node8.key = 11;
+		node8.color = 0;
+
 	}
 
 	@Test public void Insert() {
+		tree.RBInsert(node1);
+		tree.RBInsert(node2);
+		tree.RBInsert(node3);
+		tree.RBInsert(node4);// use IntervalInsert() instead of RBInsert()
+		tree.RBInsert(node5);
 		tree.RBInsert(node6);
-		assertEquals(tree.getRoot().getKey(), 4);
+		tree.RBInsert(node7);
+		tree.RBInsert(node8);
+
+		assertEquals(tree.getRoot().getRight(), node6);
+		assertEquals(tree.getRoot().getRight().getRight(), node7);
+		assertEquals(tree.getRoot().getRight().getRight().getRight(), node8);
+		assertEquals(tree.getRoot().getRight().getLeft(), node5);
+
+		assertEquals(tree.getRoot().getLeft(), node2);
+		assertEquals(tree.getRoot().getLeft().getLeft(), node1);
+		assertEquals(tree.getRoot().getLeft().getRight(), node3);
+
+		assertEquals(tree.getRoot(), node4);
 		assertEquals(tree.getRoot().getColor(), 1);
+		//assertEquals(tree.getRoot().getP(), -1); THIS WILL COME FROM THE INTERVAL INSERT!!!
+		assertEquals(tree.getRoot().getVal(), 0);
+
+
 	}
 
 

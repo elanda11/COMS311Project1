@@ -7,6 +7,9 @@
  *
  * RBTree class, maintains operations on RBTree.
  */
+
+import java.lang.Math;
+
 public class RBTree {
 
 	/**
@@ -70,7 +73,7 @@ public class RBTree {
 	 * @param node
 	 * @return
 	 */
-	public int computeVal(Node node) {
+	public int computeVal(Node node) { //DONE
 
 		if(node == NIL) {
 			return 0;
@@ -83,9 +86,9 @@ public class RBTree {
 	 * Computes max value variable for nodes
 	 * @param node
 	 */
-	public void computeMaxVal(Node node) {
+	public void computeMaxVal(Node node) { //DONE
 
-		node.maxval = max(node.left.getMaxVal(), node.right.getMaxVal() + node.getP(), node.left.getVal() + node.getP() + node.right.getMaxVal());
+		node.maxval = Math.max(Math.max(node.left.getMaxVal(), node.left.getVal() + node.getP()), node.left.getVal() + node.getP() + node.right.getMaxVal());
 
 		if (node.maxval == node.left.getMaxVal()){
 			node.emax = node.left.getEmax();
@@ -96,27 +99,6 @@ public class RBTree {
 		else {
 			node.emax = node.right.getEmax();
 		}
-	}
-
-
-	/**
-	 * private three variable int comparator
-	 * @param first
-	 * @param second
-	 * @param third
-	 * @return
-	 */
-	private int max(int first, int second, int third) {
-		int max;
-
-		if(first >= second && first >= third) {
-			max = first;
-		}else if(second >= first && second >= third) {
-			max = second;
-		}else {
-			max = third;
-		}
-		return max;
 	}
 
 
@@ -168,7 +150,7 @@ public class RBTree {
 	 * performs left rotation on given node
 	 * @param node
 	 */
-	public void leftRotate (Node node) { //correct
+	public void leftRotate (Node node) { //DONE
 		Node y = node.right;
 		node.right = y.left;
 
@@ -193,7 +175,7 @@ public class RBTree {
 	 * performs right rotation on given node
 	 * @param node
 	 */
-	public void rightRotate (Node node) { //correct
+	public void rightRotate (Node node) { //DONE
 
 		Node y = node.parent;
 		y.left = node.right;
@@ -214,7 +196,7 @@ public class RBTree {
 	 * Helper method for RBInsert to "fixup" the freshly inserted node
 	 * @param node
 	 */
-	public void RBInsertFixup(Node z){ //TODO check if it's right
+	public void RBInsertFixup(Node z){ //DONE
 		Node y = new Node();
 		while (z.parent.color == 0){
 		if (z.parent == z.parent.parent.left){
@@ -265,7 +247,7 @@ public class RBTree {
 	 * Correctly inserts given node into RB tree and then calls RBInsertFixup method
 	 * @param node
 	 */
-	public void RBInsert(Node z) { //insert is correct, not considering RBfixup
+	public void RBInsert(Node z) { //DONE
 		Node y = NIL;
 		Node x = root;
 		while (x != NIL) {
@@ -293,9 +275,12 @@ public class RBTree {
 		RBInsertFixup(z);
 	}
 
-	// helper methods to make sure all nodes values are recomputed after an insertion
+	/**
+	 * Traverse the tree in-order
+	 * @param z
+	 */
 	public void inOrder(Node z) {
-	}
+
 		if (z != null) {
 			inOrder(z.getLeft());
 			visit(z);
@@ -304,6 +289,10 @@ public class RBTree {
 
 	}
 
+	/**
+	 * calculates the Val, maxVal, and emax for each node in the tree, called by inOrder()
+	 * @param z
+	 */
 	public void visit(Node z) {
 		computeVal(z);
 		computeMaxVal(z);
